@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine Day - Will You Be My Valentine?</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ff69b4, #ffb6c1);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .question {
+            color: white;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+        
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        #yes {
+            background: #ff1493;
+            color: white;
+        }
+        
+        #yes:hover {
+            background: #ff69b4;
+        }
+        
+        #no {
+            background: #ff1493;
+            color:white;
+            position: relative;
+        }
+        
+        .tulip-result {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tulip-image {
+            width: 200px; /* Sesuaikan ukuran gambar */
+            height: auto;
+            border-radius: 10px; /* Opsional, untuk tampilan bulat */
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Tambah bayangan untuk efek */
+        }
+        
+        .message {
+            color: white;
+            font-size: 1.5em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="question-section">
+        <h1 class="question">Will you be my valentine? 💕</h1>
+        <div class="buttons">
+            <button id="yes">Yes</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+    
+    <div class="tulip-result" id="tulip-section">
+        <img src="tulip.img.png" alt="Tulip Flower" class="tulip-image">
+        <p class="message">This tulip for u sayang 💖</p>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yes');
+        const noButton = document.getElementById('no');
+        const questionSection = document.getElementById('question-section');
+        const tulipSection = document.getElementById('tulip-section');
+
+        // Fungsi untuk tombol Yes
+        yesButton.addEventListener('click', () => {
+            questionSection.style.display = 'none';
+            tulipSection.style.display = 'flex';
+        });
+
+        // Fungsi untuk tombol No: Bergerak ke posisi acak saat diklik
+        noButton.addEventListener('click', () => {
+            const randomX = Math.random() * (window.innerWidth - 100);
+            const randomY = Math.random() * (window.innerHeight - 50);
+            noButton.style.position = 'absolute';
+            noButton.style.left = randomX + 'px';
+            noButton.style.top = randomY + 'px';
+        });
+    </script>
+</body>
+</html>
